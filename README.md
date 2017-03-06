@@ -22,6 +22,17 @@ $ git clone git@github.com:unepwcmc/cards.git
 $ cd cards
 $ asdf install
 …
+```
+
+Finally, dependencies.
+
+```
+$ mix deps.get
+…
+$ cd apps/cards_web/assets
+$ npm install
+…
+$ cd ../../..
 $ mix phx.server
 ```
 
