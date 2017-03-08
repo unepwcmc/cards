@@ -1,2 +1,3 @@
-<h1><%= data[:quote] %></h1>
+
+<h1><%= data[:quote] %> <i class="small white-text material-icons">chat_bubble</i></h1>
 <em><%= data[:author] %></em>
