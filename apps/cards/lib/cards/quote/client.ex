@@ -4,12 +4,17 @@ defmodule Cards.Quote.Client do
   def query do
     HTTPoison.get!(@api_url)
     |> Map.get(:body)
-    |> Poison.decode!
+    |> remove_silly_characters
+    |> Poison.decode
     |> format
   end
 
-  def format(%{"quoteText" => quote, "quoteAuthor" => author}), do:
+  def format({:ok, %{"quoteText" => quote, "quoteAuthor" => author}}), do:
     {:ok, %{quote: quote, author: author}}
   def format(_), do:
     {:error, :unexpected_response}
+
+  defp remove_silly_characters(body) do
+    String.replace(body, "\\'", "'")
+  end
 end
