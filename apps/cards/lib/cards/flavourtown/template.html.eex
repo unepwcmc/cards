@@ -1,3 +1,4 @@
-<div class="card-image">
-  <img src="<%= data[:url] %>"/>
-</div>
+<h2 class="c-flavourtown-quote">
+  “<%= data.quote %>”
+</h2>
+<img class="c-flavourtown" src="<%= data.url %>"/>
