@@ -1,36 +1,46 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+<div class="row">
+  <div class="col s12 m4">
+    <div class="c-card card-panel teal">
+      <span data-card-id="1" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
   </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+  <div class="col s12 m4">
+    <div class="c-card card-panel cyan">
+      <span data-card-id="2" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="c-card card-panel red darken-3">
+      <span data-card-id="3" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m4">
+    <div class="c-card card-panel purple darken-4">
+      <span data-card-id="4" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="c-card card-panel orange darken-3">
+      <span data-card-id="5" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="c-card card-panel indigo darken-1">
+      <span data-card-id="6" class="white-text">
+        <%= raw Cards.Quote.load() %>
+      </span>
+    </div>
   </div>
 </div>
