@@ -2,7 +2,7 @@ defmodule Cards.Web.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Cards.Web.RoomChannel
+  channel "cards:*", Cards.Web.CardsChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
