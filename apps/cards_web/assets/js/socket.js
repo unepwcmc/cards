@@ -55,9 +55,32 @@ let socket = new Socket("/socket", {params: {token: window.userToken}});
 socket.connect();
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("cards:lobby", {});
+
 channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+  .receive("ok", resp => console.log("Joined successfully", resp))
+  .receive("error", resp => console.log("Unable to join", resp));
+
+channel.on("new-card", payload => {
+  var $card = $(`[data-card-id='${payload.id}']`);
+
+  $card.html(payload.card);
+});
+
+$("[data-card-id]").each((i, card) => {
+  var $card = $(card);
+  var startInterval = () => {
+    setTimeout(() => {
+      channel.push("ask-new-card", {id: $card.data("card-id")});
+    }, 5000);
+  };
+
+  setTimeout(startInterval, 10000*(i+1));
+});
+
+
+channel.on("reload", payload => {
+  window.reload();
+});
 
 export default socket;
