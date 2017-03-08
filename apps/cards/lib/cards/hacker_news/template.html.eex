@@ -2,6 +2,6 @@
 
 <ul class="collection">
   <%= for item <- data do %>
-    <li class="collection-item"><%= item.title %> - <%= item.by %> (<%= item.score %>)</li>
+    <li class="collection-item"><%= item.title %><span class="new badge orange"><%= item.by %> (<%= item.score %>)</span></li>
   <% end %>
 </ul>
