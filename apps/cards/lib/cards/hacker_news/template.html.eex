@@ -1,7 +1,10 @@
-<h3>Hacker News <i class="material-icons">rss_feed</i></h3>
+<h1>Hacker News <i class="material-icons">rss_feed</i></h1>
 
-<ul class="collection">
+<table>
   <%= for item <- data do %>
-    <li class="collection-item"><%= item.title %><span class="new badge orange"><%= item.by %> (<%= item.score %>)</span></li>
+    <tr>
+      <td><span class="c-hackernews-score white-text badge orange"><%= item.score %></span></td>
+      <td><h3><%= item.title %></h3></td>
+    </tr>
   <% end %>
-</ul>
+</table>

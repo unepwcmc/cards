@@ -39,3 +39,7 @@ html, body {
 .c-flavourtown-quote {
   width: 80%;
 }
+
+.c-hackernews-score {
+  margin-right: 1.5rem;
+}
