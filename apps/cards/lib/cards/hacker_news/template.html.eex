@@ -1,10 +1,16 @@
-<h1>Hacker News <i class="material-icons">rss_feed</i></h1>
+<div class="card-content">
+  <h5 class="c-hackernews__title">Hacker News <i class="material-icons">rss_feed</i></h5>
 
-<table>
-  <%= for item <- data do %>
-    <tr>
-      <td><span class="c-hackernews-score white-text badge orange"><%= item.score %></span></td>
-      <td><h3><%= item.title %></h3></td>
-    </tr>
-  <% end %>
-</table>
+  <table>
+    <%= for item <- data do %>
+      <tr>
+        <td>
+          <span class="c-hackernews__score white-text badge orange"><%= item.score %></span>
+        </td>
+        <td>
+          <p><%= item.title %></p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
