@@ -54,3 +54,16 @@ html, body {
 .c-hackernews-score {
   margin-right: 1.5rem;
 }
+
+.c-dribbble-image {
+  max-height: 85%;
+  overflow-y: hidden;
+}
+
+.c-dribbble-title {
+  font-size: 1.333rem;
+  font-weight: 300;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
