@@ -2,21 +2,18 @@
   <div class="col s12 m4">
     <div class="c-card card-panel teal">
       <span data-card-id="1" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="c-card card-panel cyan">
       <span data-card-id="2" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="c-card card-panel red darken-3">
       <span data-card-id="3" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
@@ -25,21 +22,18 @@
   <div class="col s12 m4">
     <div class="c-card card-panel purple darken-4">
       <span data-card-id="4" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="c-card card-panel orange darken-3">
       <span data-card-id="5" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="c-card card-panel indigo darken-1">
       <span data-card-id="6" class="white-text">
-        <%= raw Cards.Quote.load() %>
       </span>
     </div>
   </div>
