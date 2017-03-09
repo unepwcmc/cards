@@ -2,7 +2,7 @@ defmodule Cards.Unsplash do
   use Cards.Behaviour
 
   def load do
-    render([])
+    render(%{})
   end
 end
 
