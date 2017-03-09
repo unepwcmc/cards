@@ -25,20 +25,18 @@ html, body {
 .c-card {
   height: 43.5vh;
   position:relative;
-}
-
-.c-card h1 {
-  font-size: 3.5rem;
-  font-weight: 500;
-}
-
-.c-card em {
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 700;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 500;
+  }
+  em {
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+  }
 }
 
 .c-flavourtown {
