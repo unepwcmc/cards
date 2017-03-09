@@ -1,6 +1,19 @@
 /* This file is for your main application css. */
 html, body {
   font-size: 24px;
+  overflow-y: hidden;
+}
+
+.page-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://source.unsplash.com/random/1800x1200);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: blur(5px);
 }
 
 .o-main-container {
