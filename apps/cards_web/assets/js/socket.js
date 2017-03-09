@@ -1,12 +1,13 @@
-// NOTE: The contents of this file will only be executed if
-// you uncomment its entry in "assets/js/app.js".
-
-// To use Phoenix channels, the first step is to import Socket
-// and connect at the socket path in "lib/web/endpoint.ex":
-import {Socket} from "phoenix";
-
-let socket = new Socket("/socket", {params: {token: window.userToken}});
-
+// I moved all the logic from here into the modules/card_manager.js
+// file. Leaving this here for reference and because of the docs
+// down below
+//
+// Andrea
+//
+//
+//
+//
+//
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
 // which authenticates the session and assigns a `:current_user`.
@@ -50,36 +51,3 @@ let socket = new Socket("/socket", {params: {token: window.userToken}});
 //
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
-
-socket.connect();
-
-// Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("cards:lobby", {});
-
-channel.join()
-  .receive("ok", resp => console.log("Joined successfully", resp))
-  .receive("error", resp => console.log("Unable to join", resp));
-
-channel.on("new-card", payload => {
-  var $card = $(`[data-card-id='${payload.id}']`);
-
-  $card.html(payload.card);
-});
-
-$("[data-card-id]").each((i, card) => {
-  var $card = $(card);
-  var startInterval = () => {
-    setTimeout(() => {
-      channel.push("ask-new-card", {id: $card.data("card-id")});
-    }, 5000);
-  };
-
-  setTimeout(startInterval, 10000*(i+1));
-});
-
-
-channel.on("reload", payload => {
-  window.reload();
-});
-
-export default socket;
