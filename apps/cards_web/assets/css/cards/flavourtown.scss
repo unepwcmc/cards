@@ -1,0 +1,15 @@
+@import "utilities/bem";
+
+@include b(c-flavourtown) {
+  @include e(guy) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: 30%;
+  }
+
+  @include e(quote) {
+    width: 80%;
+  }
+}
