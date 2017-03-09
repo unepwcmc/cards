@@ -17,7 +17,7 @@ export default class CardManager {
 
 
   joinChannel () {
-    this.channel = this.socket.channel("cards:lobby", {});
+    this.channel = this.socket.channel(`cards:${Date.now()}`, {});
 
     this.channel.join()
       .receive("ok", resp => console.log("Joined successfully", resp))
