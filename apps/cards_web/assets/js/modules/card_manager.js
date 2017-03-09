@@ -26,22 +26,34 @@ export default class CardManager {
 
 
   addEventListeners () {
+    var inAnimationClass    = "animated fadeIn",
+        outAnimationClass   = "animated fadeOut",
+        shakeAnimationClass = "animated rubberBand";
+
     this.channel.on("new-card", payload => {
       var $card = $(`[data-card-id='${payload.id}']`);
-      var $cardContainer = $card.parent(".c-card");
 
-      $cardContainer.addClass("animated fadeOut");
-
-      $cardContainer.one("webkitAnimationEnd", () => {
+      $card.addClass(outAnimationClass).one("webkitAnimationEnd", () => {
         $card.html(payload.card);
-        $cardContainer.css("opacity", 0.9);
-        $cardContainer.removeClass("animated fadeOut");
-        $cardContainer.addClass("animated fadeIn");
+
+        $card
+          .css("opacity", 0.95)
+          .removeClass(outAnimationClass)
+          .addClass(inAnimationClass)
+          .one("webkitAnimationEnd", () => $card.removeClass(inAnimationClass));
       });
     });
 
     this.channel.on("reload", payload => {
       window.reload();
+    });
+
+    this.channel.on("shake", payload => {
+      var $card = $(`[data-card-id='${payload.id}']`);
+
+      $card.addClass(shakeAnimationClass).css("z-index", 99999).one("webkitAnimationEnd", () => {
+        $card.removeClass(shakeAnimationClass).css("z-index", 1);
+      });
     });
   }
 
