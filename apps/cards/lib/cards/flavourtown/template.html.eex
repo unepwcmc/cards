@@ -1,4 +1,6 @@
-<h2 class="c-flavourtown-quote">
-  “<%= data.quote %>”
-</h2>
-<img class="c-flavourtown" src="<%= data.url %>"/>
+<div class="card-content">
+  <p class="c-flavourtown__quote flow-text">
+    “<%= data.quote %>”
+  </p>
+  <img class="c-flavourtown__guy" src="<%= data.url %>"/>
+</div>

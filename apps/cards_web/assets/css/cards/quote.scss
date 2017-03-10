@@ -1,0 +1,12 @@
+@import "utilities/bem";
+
+@include b(c-quote) {
+  @include e(author) {
+    font-style: normal;
+    font-size: 1.333rem;
+    font-weight: 300;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+  }
+}
