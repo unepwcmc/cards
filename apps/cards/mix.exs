@@ -20,8 +20,11 @@ defmodule Cards.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Cards.Application, []},
-     extra_applications: [:logger]]
+    [
+      mod: {Cards.Application, []},
+      applications: [:tentacat],
+      extra_applications: [:logger]
+    ]
   end
 
   # Specifies which paths to compile per environment.
@@ -32,8 +35,11 @@ defmodule Cards.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:httpoison, "~> 0.10.0"},
-     {:poison, "~> 3.1.0"}]
+    [
+      {:httpoison, "~> 0.10.0"},
+      {:poison, "~> 3.1.0"},
+      {:tentacat, "~> 0.6.1"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

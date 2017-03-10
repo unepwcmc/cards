@@ -1,4 +1,4 @@
-<h1>Hacker News <i class="fa fa-hacker-news" aria-hidden="true"></i></h1>
+<h1>Pull Requests <i class="fa fa-github" aria-hidden="true"></i></h1>
 
 <table>
   <%= for item <- data do %>
