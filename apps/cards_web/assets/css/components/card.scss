@@ -1,0 +1,13 @@
+@import "utilities/bem";
+
+@include b(card) {
+  height: 43.5vh;
+  position:relative;
+
+  @include m(1) { background-color: #7d1128; }
+  @include m(2) { background-color: #0e4749; }
+  @include m(3) { background-color: #3c8960; }
+  @include m(4) { background-color: #12355b; }
+  @include m(5) { background-color: #420039; }
+  @include m(6) { background-color: #a43d23; }
+}

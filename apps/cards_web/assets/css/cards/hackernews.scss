@@ -1,0 +1,12 @@
+@import "utilities/bem";
+
+@include b(c-hackernews) {
+  @include e(title) {
+    margin-top: 0;
+  }
+
+  @include e(score) {
+    margin-right: 1.5rem;
+  }
+}
+
