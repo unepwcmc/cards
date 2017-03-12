@@ -11,8 +11,11 @@ defmodule Cards.Web.CardsChannel do
   end
 
   defp random_card do
-    [Cards.HackerNews, Cards.Quote, Cards.Unsplash, Cards.Flavourtown, Cards.Dribbble]
-    |> Enum.random
-    |> apply(:load, [])
+    [Cards.HackerNews,
+     Cards.Quote,
+     Cards.Unsplash,
+     Cards.Flavourtown,
+     Cards.Dribbble,
+     Cards.Appsignal] |> Enum.random |> apply(:load, [])
   end
 end
