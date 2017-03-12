@@ -33,7 +33,8 @@ defmodule Cards.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:httpoison, "~> 0.10.0"},
-     {:poison, "~> 3.1.0"}]
+     {:poison, "~> 3.1.0"},
+     {:timex, "~> 3.1.13"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
