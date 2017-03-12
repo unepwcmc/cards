@@ -1,0 +1,14 @@
+@import "utilities/bem";
+
+@include b(c-appsignal) {
+  height:90%;
+
+  @include e(title) {
+    margin-top: 0;
+  }
+
+  @include e(chart) {
+    height: 100%;
+  }
+}
+
