@@ -7,6 +7,7 @@ defmodule Cards.HackerNews.Client do
     |> Poison.decode!
     |> build_stories_from_ids
     |> Enum.map(&format/1)
+    |> Enum.sort(& &1.score > &2.score )
 
     {:ok, stories}
   end
