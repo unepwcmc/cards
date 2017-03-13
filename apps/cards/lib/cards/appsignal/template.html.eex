@@ -1,0 +1,9 @@
+<div class="c-appsignal card-content">
+  <h5 class="c-appsignal__title"><%= data.app %> <i class="material-icons">rss_feed</i></h5>
+  <canvas
+    data-appsignal-container
+    data-appsignal-labels='<%= Poison.encode!(data.labels) %>'
+    data-appsignal-data='<%= Poison.encode!(data.visits) %>'
+    class="c-appsignal__chart"
+  ></canvas>
+</div>

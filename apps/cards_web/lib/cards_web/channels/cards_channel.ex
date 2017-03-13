@@ -6,13 +6,17 @@ defmodule Cards.Web.CardsChannel do
   end
 
   def handle_in("ask-new-card", %{"id" => id}, socket) do
-    broadcast! socket, "new-card", %{id: id, card: random_card(id)}
+    broadcast! socket, "new-card", %{id: id, card: random_card()}
     {:noreply, socket}
   end
 
-  defp random_card(id) do
-    [Cards.HackerNews, Cards.Quote, Cards.Unsplash, Cards.Flavourtown, Cards.Dribbble, Cards.Github]
-    |> Enum.at(id - 1)
-    |> apply(:load, [])
+  defp random_card do
+    [Cards.HackerNews,
+     Cards.Quote,
+     Cards.Unsplash,
+     Cards.Flavourtown,
+     Cards.Dribbble,
+     Cards.Appsignal,
+     Cards.Github] |> Enum.random |> apply(:load, [])
   end
 end
