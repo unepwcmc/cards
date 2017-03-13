@@ -1,4 +1,5 @@
 import {Socket} from "phoenix";
+import Appsignal from "../cards/appsignal";
 
 export default class CardManager {
   constructor () {
@@ -35,6 +36,7 @@ export default class CardManager {
 
       $card.addClass(outAnimationClass).one("webkitAnimationEnd", () => {
         $card.html(payload.card);
+        this.loadSpecialCards($card);
 
         $card
           .css("opacity", 0.95)
@@ -66,11 +68,17 @@ export default class CardManager {
       }, 60000);
 
       this.askForCard($card);
-      setTimeout(startInterval, 10000*(i+1));
+      setTimeout(startInterval, 60000*(i+1));
     });
   }
 
   askForCard ($card) {
     this.channel.push("ask-new-card", {id: $card.data("card-id")});
+  }
+
+  loadSpecialCards ($card) {
+    if($card.find("[data-appsignal-container]").length > 0) {
+      new Appsignal($card);
+    }
   }
 }
