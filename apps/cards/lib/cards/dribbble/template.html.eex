@@ -1,0 +1,7 @@
+<div class="c-dribbble-image card-image">
+  <img src="<%= data.image %>" alt="">
+</div>
+<div class="card-content">
+  <p class="c-dribbble-title"><%= data.title %></p>
+</div>
+

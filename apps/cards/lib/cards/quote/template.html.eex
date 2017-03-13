@@ -1,2 +1,4 @@
-<h1><%= data[:quote] %> <i class="small white-text material-icons">chat_bubble</i></h1>
-<em><%= data[:author] %></em>
+<div class="card-content">
+  <p class="flow-text">“<%= data[:quote] %>” </p>
+  <p class="c-quote__author"><%= data[:author] %> <i class="small white-text material-icons">chat_bubble</i></p>
+</div>

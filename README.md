@@ -1,5 +1,7 @@
 # CARDS: CARds Dashboard System
 
+![](http://i.imgur.com/pLqhpjH.png)
+
 Welcome to the *CARDS* repository! 👋 CARDS is a dashboard system for TVs on kiosk mode,
 and it's written in Elixir, with a Phoenix frontend.
 

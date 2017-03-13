@@ -1,10 +1,11 @@
 defmodule Cards.Github.Client do
   @organisation "unepwcmc"
+  @token ""
 
   def query do
     client  = Tentacat.Client.new(%{access_token: "928392873982932"})
     repos   = Tentacat.Repositories.list_orgs(@organisation, client)
-    prs     = Enum.map(get_open_pull_requests_for_repo(client, repo)
+    pull_requests = Enum.map(get_open_pull_requests_for_repo(client, repo) |> Enum.filter()
 
     {:ok, stories}
   end
