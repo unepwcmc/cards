@@ -1,10 +1,16 @@
-<h1>Pull Requests <i class="fa fa-github" aria-hidden="true"></i></h1>
+<div class="card-content">
+  <h5>Open Pull Requests <i class="fa fa-github" aria-hidden="true"></i></h5>
 
-<table>
-  <%= for item <- data do %>
-    <tr>
-      <td><span class="c-hackernews-score white-text badge orange"><%= item.score %></span></td>
-      <td><h3><%= item.title %></h3></td>
-    </tr>
-  <% end %>
-</table>
+  <table>
+    <%= for pr <- data do %>
+      <tr>
+        <td>
+          /<%= pr.repo_name %>
+        </td>
+        <td>
+          <%= pr.count %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
