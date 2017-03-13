@@ -4,10 +4,10 @@
   <table>
     <%= for item <- data do %>
       <tr>
-        <td>
-          <span class="c-hackernews__score white-text badge orange"><%= item.score %></span>
+        <td class="c-hackernews__score">
+          <span class="white-text badge orange"><%= item.score %></span>
         </td>
-        <td>
+        <td class="c-hackernews__item">
           <p><%= item.title %></p>
         </td>
       </tr>

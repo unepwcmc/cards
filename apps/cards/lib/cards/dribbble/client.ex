@@ -18,7 +18,7 @@ defmodule Cards.Dribbble.Client do
     %{title: title, image: image}
 
   def api_url do
-    api_key = Application.get_env(:cards, :dribbble_api_key)
+    [api_key: api_key] = Application.get_env(:cards, __MODULE__)
     "https://api.dribbble.com/v1/shots?sort=views&access_token=#{api_key}"
   end
 end
