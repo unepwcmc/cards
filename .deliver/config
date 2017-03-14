@@ -52,7 +52,7 @@ pre_erlang_clean_compile() {
   status "Running mix phoenix.digest"
   __sync_remote "
     set -e
-    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
+    cd '$BUILD_AT/apps/$PHOENIX_APP'
     APP='$PHOENIX_APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
   "
 }
