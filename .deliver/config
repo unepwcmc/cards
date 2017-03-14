@@ -1,5 +1,5 @@
 # name of the deployed app
-APP="cards"
+APP="cards_umbrella"
 
 # where to build the release
 BUILD_HOST="138.68.175.227"
@@ -7,7 +7,7 @@ BUILD_USER="elixir_build"
 BUILD_AT="/home/$BUILD_USER/edeliver/$APP/builds"
 
 # necessary for umbrella projects
-RELEASE_DIR="$BUILD_AT/apps/$APP/_build/$TARGET_MIX_ENV/rel/$APP"
+RELEASE_DIR="$BUILD_AT/$APP/_build/$TARGET_MIX_ENV/rel/$APP"
 
 STAGING_HOSTS="138.68.175.227"
 STAGING_USER="elixir_staging"
