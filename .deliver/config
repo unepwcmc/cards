@@ -9,6 +9,10 @@ BUILD_AT="/home/$BUILD_USER/edeliver/$APP/builds"
 # necessary for umbrella projects
 RELEASE_DIR="$BUILD_AT/apps/$APP/rel/$APP"
 
+STAGING_HOSTS="138.68.175.227"
+STAGING_USER="elixir_staging"
+TEST_AT="/home/$STAGING_USER/$APP_staging"
+
 PRODUCTION_HOSTS="138.68.175.227"
 PRODUCTION_USER="elixir_deploy"
 DELIVER_TO="/home/$PRODUCTION_USER/$APP_live"
