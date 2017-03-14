@@ -21,6 +21,7 @@ defmodule Cards.Umbrella.Mixfile do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    []
+    [{:edeliver, ">= 1.4.2"},
+     {:distillery, ">= 0.8.0", warn_missing: false}]
   end
 end

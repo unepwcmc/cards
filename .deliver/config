@@ -1,0 +1,23 @@
+# name of the deployed app
+APP="cards"
+
+# where to build the release
+BUILD_HOST="138.68.175.227"
+BUILD_USER="elixir_build"
+BUILD_AT="/home/$BUILD_USER/edeliver/$APP/builds"
+
+# necessary for umbrella projects
+RELEASE_DIR="$BUILD_AT/apps/$APP/rel/$APP"
+
+PRODUCTION_HOSTS="138.68.175.227"
+PRODUCTION_USER="elixir_deploy"
+DELIVER_TO="/home/$PRODUCTION_USER/$APP_live"
+
+# copy secrest over to build server
+pre_erlang_get_and_update_deps() {
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    status "Copying secrets to remote server"
+    scp ./apps/cards/config/prod.secret.exs     $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards/config/prod.secret.exs
+    scp ./apps/cards_web/config/prod.secret.exs $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards_web/config/prod.secret.exs
+  fi
+}
