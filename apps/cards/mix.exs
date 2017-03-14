@@ -20,11 +20,8 @@ defmodule Cards.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [
-      mod: {Cards.Application, []},
-      applications: [:tentacat],
-      extra_applications: [:logger]
-    ]
+    [mod: {Cards.Application, []},
+     extra_applications: [:logger]]
   end
 
   # Specifies which paths to compile per environment.
