@@ -1,0 +1,60 @@
+AUTO_VERSION=commit-count+git-revision+branch-unless-master
+
+# name of the deployed app
+APP="cards_umbrella"
+PHOENIX_APP="cards_web"
+
+# where to build the release
+BUILD_HOST="138.68.175.227"
+BUILD_USER="elixir_build"
+BUILD_AT="/home/$BUILD_USER/edeliver/$APP/builds"
+
+# necessary for umbrella projects
+RELEASE_DIR="$BUILD_AT/_build/$TARGET_MIX_ENV/rel/$APP"
+
+STAGING_HOSTS="138.68.175.227"
+STAGING_USER="elixir_staging"
+TEST_AT="/home/$STAGING_USER/$APP_staging"
+
+PRODUCTION_HOSTS="138.68.175.227"
+PRODUCTION_USER="elixir_deploy"
+DELIVER_TO="/home/$PRODUCTION_USER/$APP_live"
+
+# copy secrest over to build server
+pre_erlang_get_and_update_deps() {
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    status "Copying secrets to remote server"
+    scp ./apps/cards/config/prod.secret.exs     $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards/config/prod.secret.exs
+    scp ./apps/cards_web/config/prod.secret.exs $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards_web/config/prod.secret.exs
+  fi
+}
+
+pre_erlang_clean_compile() {
+  status "Running npm install"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
+    npm install
+  "
+
+  status "Creating priv/static for assets"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP'
+    mkdir -p priv/static
+  "
+
+  status "Compiling assets with brunch"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
+    brunch build --production
+  "
+
+  status "Running mix phoenix.digest"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP'
+    APP='$PHOENIX_APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
+}
