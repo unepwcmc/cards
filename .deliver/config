@@ -35,12 +35,24 @@ pre_erlang_clean_compile() {
     npm install
   "
 
-  status "Running mix phoenix.digest"
+  status "Creating priv/static for assets"
   __sync_remote "
     set -e
     cd '$BUILD_AT/apps/$PHOENIX_APP'
     mkdir -p priv/static
+  "
+
+  status "Compiling assets with brunch"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
     brunch build --production
+  "
+
+  status "Running mix phoenix.digest"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
     APP='$PHOENIX_APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
   "
 }
