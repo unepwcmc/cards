@@ -1,5 +1,6 @@
 # name of the deployed app
 APP="cards_umbrella"
+PHOENIX_APP="cards_web"
 
 # where to build the release
 BUILD_HOST="138.68.175.227"
@@ -24,4 +25,22 @@ pre_erlang_get_and_update_deps() {
     scp ./apps/cards/config/prod.secret.exs     $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards/config/prod.secret.exs
     scp ./apps/cards_web/config/prod.secret.exs $BUILD_USER@$BUILD_HOST:$BUILD_AT/apps/cards_web/config/prod.secret.exs
   fi
+}
+
+pre_erlang_clean_compile() {
+  status "Running npm install"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP/assets'
+    npm install
+  "
+
+  status "Running mix phoenix.digest"
+  __sync_remote "
+    set -e
+    cd '$BUILD_AT/apps/$PHOENIX_APP'
+    mkdir -p priv/static
+    brunch build --production
+    APP='$PHOENIX_APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
 }
