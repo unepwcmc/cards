@@ -15,7 +15,8 @@ use Mix.Config
 # which you typically run after static files are built.
 config :cards_web, Cards.Web.Endpoint,
   on_init: {Cards.Web.Endpoint, :load_from_system_env, []},
-  url: [host: "cards.unep-wcmc.org", port: 80],
+  url: [host: "cards.unep-wcmc.org", port: 80], server: true,
+  version: Mix.Project.config[:version], root: ".",
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # ## SSL Support
