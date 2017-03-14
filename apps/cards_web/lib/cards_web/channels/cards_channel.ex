@@ -16,6 +16,7 @@ defmodule Cards.Web.CardsChannel do
      Cards.Unsplash,
      Cards.Flavourtown,
      Cards.Dribbble,
-     Cards.Appsignal] |> Enum.random |> apply(:load, [])
+     Cards.Appsignal,
+     Cards.Github] |> Enum.random |> apply(:load, [])
   end
 end

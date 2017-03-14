@@ -1,5 +1,5 @@
 <div class="card-content">
-  <h5 class="c-hackernews__title">Hacker News <i class="material-icons">rss_feed</i></h5>
+  <h5 class="c-hackernews__title">Hacker News <i class="fa fa-hacker-news" aria-hidden="true"></i></h5>
 
   <table>
     <%= for item <- data do %>
