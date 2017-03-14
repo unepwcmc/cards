@@ -20,8 +20,11 @@ defmodule Cards.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Cards.Application, []},
-     extra_applications: [:logger]]
+    [
+      mod: {Cards.Application, []},
+      applications: [:tentacat],
+      extra_applications: [:logger]
+    ]
   end
 
   # Specifies which paths to compile per environment.
@@ -34,6 +37,7 @@ defmodule Cards.Mixfile do
   defp deps do
     [{:httpoison, "~> 0.10.0"},
      {:poison, "~> 3.1.0"},
+     {:tentacat, "~> 0.6.1"},
      {:timex, "~> 3.1.13"}]
   end
 
