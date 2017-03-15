@@ -5,7 +5,7 @@ PHOENIX_APP="cards_web"
 # where to build the release
 BUILD_HOST="138.68.175.227"
 BUILD_USER="elixir_build"
-BUILD_AT="/home/$BUILD_USER/edeliver/$APP/builds"
+BUILD_AT="/home/$BUILD_USER/$APP/builds"
 
 # necessary for umbrella projects
 RELEASE_DIR="$BUILD_AT/_build/$TARGET_MIX_ENV/rel/$APP"
