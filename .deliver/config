@@ -1,5 +1,3 @@
-AUTO_VERSION=commit-count+git-revision+branch-unless-master
-
 # name of the deployed app
 APP="cards_umbrella"
 PHOENIX_APP="cards_web"
