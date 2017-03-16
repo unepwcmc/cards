@@ -39,7 +39,7 @@ end
 # will be used by default
 
 release :cards_umbrella do
-  set version: "0.2.2"
+  set version: "0.2.3"
   set applications: [
     cards: :permanent,
     cards_web: :permanent
