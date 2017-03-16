@@ -13,10 +13,11 @@ defmodule Cards.Web.CardsChannel do
   defp random_card id do
     [Cards.HackerNews,
      Cards.Quote,
-     Cards.Unsplash,
      Cards.Dribbble,
      Cards.Github,
+     Cards.GithubRecent,
      Cards.Appsignal,
+     Cards.Unsplash,
      Cards.Flavourtown] |> Enum.at(id-1) |> apply(:load, [])
   end
 end

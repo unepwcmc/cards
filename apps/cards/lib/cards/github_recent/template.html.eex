@@ -1,0 +1,18 @@
+<div class="card-content">
+  <h5>Recent Pull Requests <i class="fa fa-github" aria-hidden="true"></i></h5>
+
+
+  <%= for pr <- data do %>
+    <div class="row valign-wrapper">
+      <div class="col s2">
+        <img src="<%= pr.gravatar %>" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+        <span class="white-text badge blue"><%= pr.owner %></span>
+      </div>
+      <div class="col s10">
+        <%= pr.name %><br>
+        <%= pr.created_at_formatted %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

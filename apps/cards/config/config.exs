@@ -4,6 +4,7 @@ config :cards,
   quotes_api: Cards.Quote.Client,
   hacker_news_api: Cards.HackerNews.Client,
   github_api: Cards.Github.Client,
+  github_recent_api: Cards.GithubRecent.Client,
   dribbble_api: Cards.Dribbble.Client,
   appsignal_api: Cards.Appsignal.Client
 
@@ -11,6 +12,9 @@ config :cards, Cards.Dribbble.Client,
   api_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 config :cards, Cards.Github.Client,
+  api_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+config :cards, Cards.GithubRecent.Client,
   api_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 config :cards, Cards.Appsignal.Client,
