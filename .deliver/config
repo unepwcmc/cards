@@ -3,15 +3,15 @@ APP="cards_umbrella"
 PHOENIX_APP="cards_web"
 
 # where to build the release
-BUILD_HOST="138.68.175.227"
-BUILD_USER="elixir_build"
+BUILD_HOST="cards-dashboard-staging.Linode.unep-wcmc.org"
+BUILD_USER="wcmc"
 BUILD_AT="/home/$BUILD_USER/$APP/builds"
 
 # necessary for umbrella projects
 RELEASE_DIR="$BUILD_AT/_build/$TARGET_MIX_ENV/rel/$APP"
 
-STAGING_HOSTS="138.68.175.227"
-STAGING_USER="elixir_staging"
+STAGING_HOSTS="cards-dashboard-staging.Linode.unep-wcmc.org"
+STAGING_USER="wcmc"
 TEST_AT="/home/$STAGING_USER/$APP_staging"
 
 PRODUCTION_HOSTS="138.68.175.227"
