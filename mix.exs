@@ -9,7 +9,7 @@ defmodule Cards.Umbrella.Mixfile do
   end
 
   def application do
-    [extra_applications: [:edeliver]]
+    [extra_applications: [:edeliver, :runtime_tools, :observer, :wx]]
   end
 
   # Dependencies can be Hex packages:
