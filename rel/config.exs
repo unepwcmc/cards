@@ -41,6 +41,10 @@ end
 release :cards_umbrella do
   set version: "0.2.3"
   set applications: [
+    runtime_tools: :permanent,
+    wx: :permanent,
+    observer: :permanent,
+
     cards: :permanent,
     cards_web: :permanent
   ]
