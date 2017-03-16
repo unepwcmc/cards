@@ -1,0 +1,26 @@
+@import "utilities/bem";
+
+@include b(c-github-recent) {
+  @include e(pr) {
+    margin-bottom: 1.75rem;
+  }
+
+  @include e(title) {
+    font-weight: 500;
+    margin-bottom: .25rem;
+  }
+
+  @include e(tags) {
+    overflow: hidden;
+  }
+
+  @include e(tag) {
+    float: left;
+    font-size: .75rem;
+    margin-right: .5rem;
+  }
+
+  @include e(icon) {
+    margin-right: .125rem;
+  }
+}

@@ -3,16 +3,26 @@
 
 
   <%= for pr <- data do %>
-    <div class="row valign-wrapper">
+    <div class="c-github-recent__pr row valign-wrapper">
       <div class="col s2">
-        <img src="<%= pr.gravatar %>" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-        <span class="white-text badge blue"><%= pr.owner %></span>
+          <img src="<%= pr.gravatar %>" alt="" class="circle responsive-img">
       </div>
+
       <div class="col s10">
-        <%= pr.name %><br>
-        <%= pr.created_at_formatted %>
+        <p class="c-github-recent__title"><%= pr.name %></p>
+
+        <div class="c-github-recent__tags">
+          <p class="c-github-recent__tag white-text">
+            <i class="c-github-recent__icon fa fa-clock-o" aria-hidden="true"></i> <%= pr.created_at_formatted %>
+          </p>
+          <p class="c-github-recent__tag white-text">
+            <i class="c-github-recent__icon fa fa-user" aria-hidden="true"></i> <%= pr.owner %>
+          </p>
+          <p class="c-github-recent__tag white-text">
+            <i class="c-github-recent__icon fa fa-code-fork" aria-hidden="true"></i> <%= pr.repo %>
+          </p>
+        </div>
       </div>
     </div>
   <% end %>
-
 </div>
