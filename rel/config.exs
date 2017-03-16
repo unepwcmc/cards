@@ -40,6 +40,11 @@ end
 
 release :cards_umbrella do
   set version: "0.2.3"
+
+  # set port for distributed erlang. This allows nodes to connect to
+  # each other (useful for using :observer from another machine)
+  set :erl_opts, "-kernel inet_dist_listen_min 9001 inet_dist_listen_max 9001"
+
   set applications: [
     runtime_tools: :permanent,
     wx: :permanent,
@@ -49,4 +54,3 @@ release :cards_umbrella do
     cards_web: :permanent
   ]
 end
-
