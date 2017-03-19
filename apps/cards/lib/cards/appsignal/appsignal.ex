@@ -1,12 +1,16 @@
 defmodule Cards.Appsignal do
   use Cards.Behaviour
 
-  def load do
+  def load(app_id, app_name) do
     client = Application.get_env(:cards, :appsignal_api)
-    values = client.query()
-    labels = values |> length |> get_labels
 
-    render(%{app: "Protected Planet", labels: labels, visits: values})
+    case client.query(app_id) do
+      {:error, _} ->
+        "<p>Could not load the card</p>"
+      values ->
+        labels = values |> length |> get_labels
+        render(%{app: app_name, labels: labels, visits: values})
+    end
   end
 
   defp get_labels quantity do

@@ -18,7 +18,6 @@ config :cards, Cards.GithubRecent.Client,
   api_key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 config :cards, Cards.Appsignal.Client,
-  app_id: "xxxxxxxxxxxxxxxxxxxxxxxx",
   token: "xxxxxxxxxxxxxxxxxxxxxx"
 
 import_config "#{Mix.env}.exs"
