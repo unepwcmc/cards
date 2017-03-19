@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :cards_web,
-  namespace: Cards.Web
+  namespace: Cards.Web,
+  poll_every: 10
 
 # Configures the endpoint
 config :cards_web, Cards.Web.Endpoint,
