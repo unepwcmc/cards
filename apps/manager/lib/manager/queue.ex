@@ -1,4 +1,5 @@
 defmodule Manager.Queue do
+  @card_timeout 10000
   use GenServer
 
   def start_link do
@@ -8,7 +9,7 @@ defmodule Manager.Queue do
   # Client API
   ############
   def next do
-    GenServer.call(__MODULE__, :next)
+    GenServer.call(__MODULE__, :next, @card_timeout)
   end
 
   # Server Callbacks
