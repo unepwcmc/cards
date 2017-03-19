@@ -18,7 +18,7 @@ defmodule Manager.Queue do
     {:ok, state = config}
   end
 
-  def handle_call(:next, _from, [card = {_, %{mod: module}} | rest]) do
-    {:reply, module.load(), List.insert_at(rest, -1, card)}
+  def handle_call(:next, _from, [card = {_, {module, config}} | rest]) do
+    {:reply, apply(module, :load, config), List.insert_at(rest, -1, card)}
   end
 end

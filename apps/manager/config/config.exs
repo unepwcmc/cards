@@ -3,12 +3,13 @@
 use Mix.Config
 
 config :manager, Manager.Queue, [
-  hacker_news: %{mod: Cards.HackerNews, poll_every: 60*2},
-  quote:       %{mod: Cards.Quote, poll_every: 60*2},
-  unsplash:    %{mod: Cards.Unsplash, poll_every: 60*5},
-  dribbble:    %{mod: Cards.Dribbble, poll_every: 60*2},
-  github:      %{mod: Cards.Github, poll_every: 60*5},
-  appsignal:   %{mod: Cards.Appsignal, poll_every: 60},
-  appsignal:   %{mod: Cards.Appsignal, poll_every: 60},
-  flavourtown: %{mod: Cards.Flavourtown, poll_every: 60}
+  hacker_news:   {Cards.HackerNews,   []},
+  quote:         {Cards.Quote,        []},
+  unsplash:      {Cards.Unsplash,     []},
+  dribbble:      {Cards.Dribbble,     []},
+  github:        {Cards.Github,       []},
+  github_recent: {Cards.GithubRecent, []},
+  appsignal:     {Cards.Appsignal,    ["57c84769ebad64166e99969a", "Protected Planet"]},
+  appsignal:     {Cards.Appsignal,    ["56c5d74b776f725e76821201", "Species+"]},
+  flavourtown:   {Cards.Flavourtown,  []}
 ]
