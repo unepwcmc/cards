@@ -51,6 +51,7 @@ release :cards_umbrella do
     observer: :permanent,
 
     cards: :permanent,
+    manager: :permanent,
     cards_web: :permanent
   ]
 end
