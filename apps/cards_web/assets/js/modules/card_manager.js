@@ -7,7 +7,6 @@ export default class CardManager {
     this.joinChannel();
 
     this.addEventListeners();
-    this.startCardRotation();
   }
 
 
@@ -18,7 +17,7 @@ export default class CardManager {
 
 
   joinChannel () {
-    this.channel = this.socket.channel(`cards:${Date.now()}`, {});
+    this.channel = this.socket.channel("cards:lobby", {});
 
     this.channel.join()
       .receive("ok", resp => console.log("Joined successfully", resp))
@@ -59,22 +58,6 @@ export default class CardManager {
     });
   }
 
-
-  startCardRotation () {
-    $("[data-card-id]").each((i, card) => {
-      var $card = $(card);
-      var startInterval = () => setInterval(() => {
-        this.askForCard($card);
-      }, 60000);
-
-      this.askForCard($card);
-      setTimeout(startInterval, 60000*(i+1));
-    });
-  }
-
-  askForCard ($card) {
-    this.channel.push("ask-new-card", {id: $card.data("card-id")});
-  }
 
   loadSpecialCards ($card) {
     if($card.find("[data-appsignal-container]").length > 0) {

@@ -8,6 +8,7 @@ defmodule Cards.Web.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(Cards.Web.Endpoint, []),
+      worker(Cards.Web.Timer, [Application.get_env(:cards_web, :poll_every), 1..6]),
       # Start your own worker by calling: Cards.Web.Worker.start_link(arg1, arg2, arg3)
       # worker(Cards.Web.Worker, [arg1, arg2, arg3]),
     ]
