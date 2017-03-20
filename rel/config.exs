@@ -39,7 +39,7 @@ end
 # will be used by default
 
 release :cards_umbrella do
-  set version: "0.4.0"
+  set version: "0.4.1"
 
   # set port for distributed erlang. This allows nodes to connect to
   # each other (useful for using :observer from another machine)
