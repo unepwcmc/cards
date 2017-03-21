@@ -28,9 +28,11 @@ defmodule Manager.Queue do
   end
 
   def handle_call(:random, _from, state) do
-    index = Enum.random(6..length(state)-1)
-    {card, rest} = List.pop_at(state, index)
-    {_, {module, config}} = card
+    from = 0
+    #Get random card that is not on screen already
+    to = length(state)-1-6
+    index = Enum.random(from..to)
+    {{_, {module, config}} = card, rest} = List.pop_at(state, index)
     {:reply, apply(module, :load, config), List.insert_at(rest, -1, card)}
   end
 end
