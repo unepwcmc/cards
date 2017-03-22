@@ -20,6 +20,8 @@ config :cards, Cards.GithubRecent.Client,
 config :cards, Cards.Appsignal.Client,
   token: "xxxxxxxxxxxxxxxxxxxxxx"
 
+config :tentacat, request_options: [recv_timeout: 10000]
+
 import_config "#{Mix.env}.exs"
 
 # As a safer alternative, create a #{Mix.env}.secret.exs file, and set your config
