@@ -1,6 +1,7 @@
 defmodule Manager.Queue do
-  @card_timeout 10000
+  @card_timeout 30000
   use GenServer
+  require Logger
 
   def start_link do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
@@ -24,15 +25,18 @@ defmodule Manager.Queue do
   end
 
   def handle_call(:next, _from, [card = {_, {module, config}} | rest]) do
+    Logger.info "loading #{module}"
     {:reply, apply(module, :load, config), List.insert_at(rest, -1, card)}
   end
 
   def handle_call(:random, _from, state) do
-    from = 0
-    #Get random card that is not on screen already
-    to = length(state)-1-6
+    # get random card that is not on screen already
+    from..to = 0..(length(state) - 1 - 6)
+
     index = Enum.random(from..to)
     {{_, {module, config}} = card, rest} = List.pop_at(state, index)
+
+    Logger.info "loading #{module}"
     {:reply, apply(module, :load, config), List.insert_at(rest, -1, card)}
   end
 end
