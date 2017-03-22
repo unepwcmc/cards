@@ -1,34 +1,34 @@
 <div class="row">
   <div class="col s12 m4">
     <div data-card-id="1" class="white-text card card--1">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
   <div class="col s12 m4">
     <div data-card-id="2" class="white-text card card--2">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
   <div class="col s12 m4">
     <div data-card-id="3" class="white-text card card--3">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col s12 m4">
     <div data-card-id="4" class="white-text card card--4">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
   <div class="col s12 m4">
     <div data-card-id="5" class="white-text card card--5">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
   <div class="col s12 m4">
     <div data-card-id="6" class="white-text card card--6">
-      <%= Manager.next() %>
+      <%= raw Manager.next() %>
     </div>
   </div>
 </div>
