@@ -13,6 +13,14 @@ defmodule Cards.Web.Timer do
     Process.send_after(self(), :poll, seconds_after*1000)
   end
 
+  def trigger do
+    send(__MODULE__, :poll)
+  end
+
+  def pick name do
+    send(__MODULE__, {:pick, name})
+  end
+
   # Server callbacks
   ##################
   def init(every: every, range: first..last) do
@@ -20,15 +28,21 @@ defmodule Cards.Web.Timer do
     {:ok, %{id: first, every: every, range: first..last}}
   end
 
-  def handle_info(:poll, %{id: id, every: every, range: first..last} = state) do
-    Cards.Web.Endpoint.broadcast!(
-      "cards:lobby",
-      "new-card",
-      %{id: id, card: Manager.next()}
-    )
+  def handle_info(:poll, %{id: id, every: every, range: range} = state) do
+    Cards.Web.Endpoint.broadcast!("cards:lobby", "new-card", %{id: id, card: Manager.next()})
 
     reschedule(every)
+    update_state(state, range, id)
+  end
 
+  def handle_info({:pick, name}, %{id: id, every: every, range: range} = state) do
+    Cards.Web.Endpoint.broadcast!("cards:lobby", "new-card", %{id: id, card: Manager.pick(name)})
+
+    reschedule(every)
+    update_state(state, range, id)
+  end
+
+  defp update_state(state, first..last, id) do
     if id + 1 > last do
       {:noreply, %{state | id: first}}
     else

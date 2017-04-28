@@ -14,4 +14,18 @@ defmodule Manager do
       Manager.Queue.next()
     end
   end
+
+  @doc """
+  Returns the names of all cards in the Manager.Queue
+  """
+  def all_cards do
+    Manager.Queue.all_cards()
+  end
+
+  @doc """
+  Returns the card that matches the given identifier
+  """
+  def pick name do
+    Manager.Queue.pick(name)
+  end
 end
