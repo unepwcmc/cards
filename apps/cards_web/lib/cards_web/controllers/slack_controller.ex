@@ -17,13 +17,17 @@ defmodule Cards.Web.SlackController do
     json conn, %{text: "Showing card #{name}…"}
   end
 
-
   def slash(conn, _params) do
-    json conn, show_help()
+    json conn, %{text: show_help()}
   end
 
   defp show_help do
-    "Help!"
+    """
+    To see all cards available: `/cards list`
+    To shuffle all cards: `/cards shuffle`
+    To pick a card from the list: `/cards pick <name>`
+    To see this text: `/cards help`
+    """
   end
 end
 
